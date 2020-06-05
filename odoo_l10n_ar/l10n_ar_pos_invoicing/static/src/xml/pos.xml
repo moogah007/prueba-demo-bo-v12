@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<templates id="template" inherit_id="point_of_sale.template" xml:space="preserve">
+    <t t-name="ClientDetails" t-extend="ClientDetails">
+        <t t-jquery=".client-details-right>div:nth-child(1)" t-operation="after">
+            <div class='client-detail'>
+                <span class='label'>Tipo de documento</span>
+                <t t-if='partner.partner_document_type_id'>
+                    <span class='detail client-fiscal_pos'><t t-esc='partner.partner_document_type_id[1]'/></span>
+                </t>
+                <t t-if='!partner.partner_document_type_id'>
+                    <span class='detail client-fiscal_pos empty'>N/A</span>
+                </t>
+            </div>
+        </t>
+        <t t-jquery=".client-details-left>div:nth-child(3)" t-operation="after">
+            <div class='client-detail'>
+                <span class='label'>Posición fiscal</span>
+                <t t-if='partner.property_account_position_id'>
+                    <span class='detail client-doc_type'><t t-esc='partner.property_account_position_id[1]'/></span>
+                </t>
+                <t t-if='!partner.property_account_position_id'>
+                    <span class='detail client-doc_type empty'>N/A</span>
+                </t>
+            </div>
+        </t>
+        <t t-jquery=".client-details-left>div:nth-child(1)" t-operation="replace">
+            <div class='client-detail'>
+                <span class='label'>Dirección</span>
+                <t t-if='partner.address'>
+                    <span class='detail client-address'><t t-esc="(partner.street || '') +', '+ (partner.zip || '') +' '+ (partner.city || '') +', '+ (partner.state_id[1] || '') +', '+ (partner.country_id[1] || '')"/></span>
+                </t>
+                <t t-if='!partner.address'>
+                    <span class='detail client-address empty'>N/A</span>
+                </t>
+            </div>
+        </t>
+    </t>
+
+    <t t-name="ClientDetailsEdit" t-extend="ClientDetailsEdit">
+        <t t-jquery=".client-details-right>div:nth-child(3)" t-operation="after">
+            <div class='client-detail'>
+                <span class='label'>Posición fiscal</span>
+                <select class='detail client-fiscal_pos needsclick' name='property_account_position_id'>
+                    <option value=''>None</option>
+                    <t t-foreach='widget.pos.fiscal_positions' t-as='fiscal_pos'>
+                        <option t-att-value='"account.fiscal.position," + fiscal_pos.id' t-att-selected="partner.property_account_position_id ? ((fiscal_pos.id === partner.property_account_position_id[0]) ? true : undefined) : undefined">
+                            <t t-esc='fiscal_pos.name'/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+            <div class='client-detail'>
+                <span class='label'>Tipo de documento</span>
+                <select class='detail client-doc_type needsclick' name='partner_document_type_id'>
+                    <option value=''>None</option>
+                    <t t-foreach='widget.pos.doc_types' t-as='doc_type'>
+                        <option t-att-value='doc_type.id' t-att-selected="partner.partner_document_type_id ? ((doc_type.id === partner.partner_document_type_id[0]) ? true : undefined) : undefined">
+                            <t t-esc='doc_type.name'/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+        </t>
+        <t t-jquery=".client-details-left>div:nth-child(3)" t-operation="after">
+            <div class='client-detail'>
+                <span class='label'>Provincia</span>
+                <select class='detail client-state needsclick' name='state_id'>
+                    <option value=''>None</option>
+                    <t t-foreach='widget.pos.states' t-as='state'>
+                        <option t-att-value='state.id' t-att-selected="partner.state_id ? ((state.id === partner.state_id[0]) ? true : undefined) : undefined">
+                            <t t-esc='state.name'/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+        </t>
+    </t>
+
+    <t t-name="ClientLine" t-extend="ClientLine">
+        <t t-jquery=".client-line>td:nth-child(2)" t-operation="replace">
+            <td><t t-esc="(partner.street || '') +', '+ (partner.zip || '') +' '+ (partner.city || '') +', '+ (partner.state_id[1] || '') +', '+ (partner.country_id[1] || '')"/></td>
+        </t>
+    </t>
+</templates>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->

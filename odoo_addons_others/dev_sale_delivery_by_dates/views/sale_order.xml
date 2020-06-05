@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle 
+ -->
+<odoo>
+    <record id="dev_sale_order_delivery_date_inherit_form" model="ir.ui.view">
+         <field name="name">dev.sale.order.delivery.date.inheri.form</field>
+         <field name="model">sale.order</field>
+         <field name="inherit_id" ref="sale.view_order_form"/>
+         <field name="arch" type="xml">
+            <xpath expr="//page//field[@name='order_line']//tree//field[@name='name']" position="after">
+                <field name="delivery_date"/>
+            </xpath>
+            <xpath expr="//page//field[@name='order_line']//form//field[@name='price_unit']" position="after">
+                <field name="delivery_date"/>
+            </xpath>
+         </field>
+    </record>
+    
+</odoo>

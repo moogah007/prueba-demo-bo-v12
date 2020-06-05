@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_header">
+        <div class="header">
+            <div style="border: 1px solid black; border-radius: 3px 3px 0px 0px !important;">
+                <!-- CODIGO Y DENOMINACION-->
+                <div style="display: table; margin: -1px auto 0 auto; height: 25mm;
+                    border: 1px solid black; padding: 0px 8px 3px 8px">
+                    <div style="padding: 15px 0; text-align:center">
+                        <div style="font-size: 25px"><b>R</b><br/></div>
+                        <div style="font-size: 10px">COD. <span t-esc="o.get_voucher_code()"/><br/></div>
+                    </div>
+                </div>
+
+                <div style="width: 100%; overflow: auto">
+                    <!--DATOS DE LA EMPRESA Y LOGO-->
+                    <div style="width: 50%;float: left;">
+                        <div style="width: 100%;">
+                            <img style="left:10%;top:10px;display:block;margin:auto;max-width:200px;max-height:20mm;position:absolute;"
+                                 t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)"/>
+                            <div style="width: 100%;">
+                                <div style="padding: 0px 15px 15px; font-size:12px; border-right: 1px solid black">
+                                    <table cellspacing="0" cellpadding="0" align="center" width="100%">
+                                        <tr><td><b>RAZÓN SOCIAL: </b><span t-field="o.company_id.name"/></td></tr>
+                                        <tr><td><b>DIRECCIÓN: </b><span t-esc="o.company_id.street"/> - <span t-esc="o.company_id.city"/></td></tr>
+                                        <tr><td><b>TELÉFONO: </b><span t-esc="o.company_id.phone"/></td></tr>
+                                        <tr><td><b>CORREO ELECTRÓNICO: </b><span t-esc="o.company_id.email"/></td></tr>
+                                        <tr><td><b>CONDICIÓN FRENTE AL IVA: </b><span t-field="o.company_id.partner_id.property_account_position_id"/></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="width: 50%;float: right;">
+                        <div style="width: 100%;">
+                            <div style="position:absolute; width:50%;top: 20px">
+                                <div style="width: 100%; text-align: center; margin:0 auto;font-size: 14px;margin-top:2px;"><b>DOCUMENTO NO VÁLIDO COMO FACTURA</b></div>
+                                <div style="width: 100%; text-align: center; margin:0 auto;font-size: 20px;margin-top:2px;"><b>REMITO</b></div>
+                                <div style="width: 100%; text-align: center; margin:0 auto;font-size: 17px;margin-top:2px;"><b><span t-field="o.name"/></b></div>
+                            </div>
+                            <div style="margin-left: -2px; padding: 15px; font-size:12px; border-left: 1px solid black">
+                                <table cellspacing="0" cellpadding="0" width="100%">
+                                    <tr><td><b>LUGAR Y FECHA: </b><span t-field="o.company_id.city"/>, <span t-field="o.date_done" t-options='{"format": "dd/MM/yyyy"}'/></td></tr>
+                                    <tr><td><b><span t-field="o.company_id.partner_id.partner_document_type_id"/>: </b><span t-field="o.company_id.partner_id.vat"/></td></tr>
+                                    <tr><td><b>INGRESOS BRUTOS: </b><span t-field="o.company_id.iibb_number"/></td></tr>
+                                    <tr><td><b>FECHA DE INICIO DE ACTIVIDADES: </b><span t-field="o.company_id.start_date" t-options='{"format": "dd/MM/yyyy"}'/></td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--DATOS DE CLIENTE-->
+            <div t-if="o.partner_id" style="font-size:12px;padding:5px 0px 0px 0px">
+                <div style="border:1px solid black;border-radius: 0px 0px 3px 3px !important;padding: 5px 0px 5px 20px">
+                    <t t-set="parent_id" t-value="o.partner_id.parent_id or o.partner_id"/>
+                    <t t-set="partner_name" t-value="o.partner_id.name or o.partner_id.parent_id.name"/>
+                    <table width="100%">
+                        <tr>
+                            <td width="60%">
+                                <b>CLIENTE: </b>
+                                <span t-esc="partner_name"/>
+                            </td>
+                            <td>
+                                <b>
+                                    <span t-esc="parent_id.partner_document_type_id.name if parent_id.partner_document_type_id else DOCUMENTO"/>:
+                                </b>
+                                <span t-esc="parent_id.vat"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <t t-if="o.partner_id.street">
+                                <td style="padding: 5px 0px 0px 0px">
+                                    <b>DIRECCIÓN: </b><span t-field="o.partner_id.street"/>
+                                    <t t-if="o.partner_id.zip"> (<span t-field="o.partner_id.zip"/>)</t>
+                                    <t t-if="o.partner_id.city"> <span t-field="o.partner_id.city"/>, </t>
+                                    <t t-if="o.partner_id.state_id"> <span t-field="o.partner_id.state_id"/></t>
+                                </td>
+                            </t>
+                            <t>
+                                <td style="padding: 5px 0px 0px 0px">
+                                    <b>CONDICIÓN FRENTE AL IVA: </b>
+                                    <span t-esc="parent_id.with_context(force_company=o.company_id.id).property_account_position_id.name"/>
+                                </td>
+                            </t>
+                        </tr>
+                        <t t-if="o.partner_id.phone">
+                            <tr>
+                                <td style="padding: 5px 0px 0px 0px">
+                                    <b>TELÉFONO: </b>
+                                    <span t-field="o.partner_id.phone"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </template>
+
+    <template id="report_footer">
+        <div class="footer" style="border: 1px solid black; border-radius: 3px !important;">
+            <t t-if="o.sale_id">
+                <div style="border:0 solid black;border-top:0 none;border-right:0 none;clear: both;width: 100%;height:0.5cm;">
+                    <div style="border:1px solid black;border-top:0 none;border-left:0 none;border-right:0 none;width: 100%;height:100%;">
+                        <div style="padding: 0px 0px 0px 80px">
+                            <table style="width: 100%;margin-top: 8px" cellspacing="0" cellpadding="0">
+                                <tr style="font-size:10px">
+                                    <td style="width: 50%"><b>SEGÚN PRESUPUESTO: </b><span t-field="o.sale_id"/></td>
+                                    <td style="width: 50%"><b>SOLICITADO EL: </b><span t-field="o.sale_id.date_order" t-options='{"format": "dd/MM/yyyy"}'/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </t>
+            <div style="border:0 solid black;border-top:0 none;border-right:0 none;clear: both;width: 100%;height:2cm;">
+                <div style="border:1px solid black;border-top:0 none;border-left:0 none;border-right:0 none;width: 100%;height:100%;">
+                    <div style="padding: 5px 0px 0px 10px"><b>Recibí conforme</b></div>
+                    <div style="padding: 0px 0px 0px 80px">
+                        <table style="width: 100%;margin-top: 15px" cellspacing="0" cellpadding="0">
+                            <tr style="font-size:10px">
+                                <td style="width: 30%;text-align: center">............./............./...........<br/>Fecha</td>
+                                <td style="width: 35%;text-align: center">...................................................<br/>Firma</td>
+                                <td style="width: 35%;text-align: center">...................................................<br/>Aclaración</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div style="border:0 solid black;border-top:0 none;border-right:0 none;clear: both;width: 100%;height:2.3cm;">
+                <t t-if="o.cai">
+                    <div style="width: 100%;height:100%;">
+                        <div style="padding: 5px 0px 5px 20px;width:60%;float:left">
+                            <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.get_bar_code(), 500, 60)" style="width:500px;height:60px"/>
+                            <div style="font-size:10px;text-align:center" ><span t-esc="o.get_bar_code()"/></div>
+                        </div>
+                        <div style="width:40%;overflow:hidden;line-height: 1cm">
+                            <b>CAI:</b> <span t-field="o.cai"/><br/><b>Vencimiento CAI:</b> <span t-field="o.cai_due_date"/>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </template>
+
+    <template id="report_inner_layout">
+        <t t-name="report.picking_layout">
+            <t t-call="l10n_ar_stock_picking_report.report_header"/>
+            <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name"
+                 t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+                <t t-raw="0"/>
+            </div>
+            <t t-call="l10n_ar_stock_picking_report.report_footer"/>
+        </t>
+    </template>
+
+    <template id="report_selfprint_layout">
+        <t t-call="web.html_container">
+            <t t-foreach="docs.sudo()" t-as="o">
+                <t t-call="l10n_ar_stock_picking_report.report_inner_layout">
+                    <div class="page">
+                        <table cellpadding="0" cellspacing="0" style="border-spacing:0;border-collapse:0;font-size:12px;width: 100%;">
+                            <thead>
+                                <tr style="font-weight:bold;font-size:14px">
+                                    <th style="vertical-align: middle;width:9%;border-bottom:1.5px solid;border-color: #99aa99;padding:6px;text-align:center" align="center">Cantidad</th>
+                                    <th style="vertical-align: middle;width:18%;border-bottom:1.5px solid;border-color: #99aa99;border-top:0 none;padding:6px;text-align:center" align="center">Código</th>
+                                    <th style="vertical-align: middle;width:73%;border-bottom:1.5px solid;border-color: #99aa99;padding:6px;text-align: center" align="center">Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody style="border-bottom: none;">
+                                <t t-foreach="o.move_ids_without_package.sorted(key=lambda lm: lm.product_id.id)" t-as="m">
+                                    <t t-foreach="m.move_line_ids.sorted(key=lambda ll: ll.location_id.id)" t-as="l">
+                                        <tr style="height: 25px">
+                                            <td style="vertical-align: middle;border-bottom:1px solid;border-color: #c5c5c5;padding: 0px 0px 0px 5px; text-align: center"><span t-field="l.qty_done"/></td>
+                                            <td style="vertical-align: middle;border-bottom:1px solid;border-color: #c5c5c5;padding: 0px 0px 0px 5px; text-align: center"><span t-field="l.product_id.default_code"/></td>
+                                            <td style="vertical-align: middle;border-bottom:1px solid;border-color: #c5c5c5;padding: 0px 0px 0px 5px">
+                                                <span t-field="l.display_name"/>
+                                                <t t-if="l.lot_id" groups="stock.group_production_lot">
+                                                    - Lote <span t-field="l.lot_id.name"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </t>
+                                <tr>
+                                    <td></td><td></td><td style="padding: 20px"><span t-field="o.note"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

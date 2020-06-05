@@ -1,0 +1,345 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_ar_point_of_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e-20190208\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-30 21:22+0000\n"
+"PO-Revision-Date: 2019-12-30 21:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__active
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__active
+msgid "Activo"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: code:addons/l10n_ar_point_of_sale/models/account_invoice.py:133
+#: code:addons/l10n_ar_point_of_sale/models/account_invoice.py:142
+#, python-format
+msgid "CREDIT NOTE"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__prefix_quantity
+msgid "Cantidad de digitos prefijo"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__category
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_document_type__category
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_type__category
+msgid "Categoria"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__company_id
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__company_id
+msgid "Compania"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model_terms:ir.ui.view,arch_db:l10n_ar_point_of_sale.accounting_configuration_company_form
+msgid "Configuracion contable"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_document_type__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_type__create_uid
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__create_date
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_document_type__create_date
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_type__create_date
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: code:addons/l10n_ar_point_of_sale/models/account_invoice.py:132
+#: code:addons/l10n_ar_point_of_sale/models/account_invoice.py:141
+#, python-format
+msgid "DEBIT NOTE"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_account_invoice__denomination_id
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__denomination_id
+msgid "Denominacion"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model,name:l10n_ar_point_of_sale.model_denomination_fiscal_position
+msgid "Denominación de posiciones fiscales"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__description
+msgid "Descripcion"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model_terms:ir.ui.view,arch_db:l10n_ar_point_of_sale.document_book_form
+#: model_terms:ir.ui.view,arch_db:l10n_ar_point_of_sale.pos_ar_form
+msgid "Detalles"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__display_name
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_document_type__display_name
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_type__display_name
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: sql_constraint:document.book:0
+msgid "El talonario debe ser unico por la combinacion punto de venta/denominacion/categoria/tipo de documento"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: selection:document.book.type,type:0
+msgid "Electronico"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: selection:document.book.type,type:0
+msgid "Electronico exp."
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,help:l10n_ar_point_of_sale.field_document_book__document_type_id
+msgid "En los casos qe se utilice el mismo punto de venta para distintos documentos\n"
+"Por ejemplo, facturas y notas de credito/debito"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_account_invoice__is_credit_invoice
+msgid "Es factura de credito?"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_account_invoice__is_debit_note
+msgid "Es nota de debito?"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: selection:document.book,category:0
+#: selection:document.book.document.type,category:0
+#: selection:document.book.type,category:0
+msgid "Factura"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model,name:l10n_ar_point_of_sale.model_account_fiscal_position
+msgid "Fiscal Position"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_type__foo
+msgid "Funcion"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,help:l10n_ar_point_of_sale.field_document_book_type__foo
+msgid "Funcion a ejecutarse al utilizar tipo de talonario"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__id
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_document_type__id
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_type__id
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: code:addons/l10n_ar_point_of_sale/models/account_invoice.py:131
+#: code:addons/l10n_ar_point_of_sale/models/account_invoice.py:140
+#, python-format
+msgid "INVOICE"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model,name:l10n_ar_point_of_sale.model_account_invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_account_invoice__jurisdiction_id
+msgid "Jurisdiccion"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: sql_constraint:document.book:0
+msgid "La secuencia debe ser unica por categoria, tipo de documento y denominacion"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book____last_update
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_document_type____last_update
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_type____last_update
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_document_type__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_type__write_uid
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__write_date
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_document_type__write_date
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_type__write_date
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: code:addons/l10n_ar_point_of_sale/models/account_invoice.py:154
+#, python-format
+msgid "NO FISCAL"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_document_type__name
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_type__name
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__name
+msgid "Nombre"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_account_invoice__full_name
+#: model_terms:ir.ui.view,arch_db:l10n_ar_point_of_sale.pos_ar_form
+msgid "Numero"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model_terms:ir.ui.view,arch_db:l10n_ar_point_of_sale.invoice_pos_ar_supplier_tree
+#: model_terms:ir.ui.view,arch_db:l10n_ar_point_of_sale.invoice_pos_ar_tree
+msgid "Número"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: selection:document.book.document.type,category:0
+#: selection:document.book.type,category:0
+msgid "Pago"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,help:l10n_ar_point_of_sale.field_document_book__sequence
+msgid "Por default, se eligirá el que menos secuencia tiene"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: selection:document.book.type,type:0
+msgid "Preimpreso"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model,name:l10n_ar_point_of_sale.model_pos_ar
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_account_invoice__pos_ar_id
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__pos_ar_id
+msgid "Punto de venta"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.actions.act_window,name:l10n_ar_point_of_sale.action_pos_ar_view
+#: model:ir.ui.menu,name:l10n_ar_point_of_sale.pos_ar_menu
+msgid "Puntos de venta"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: selection:document.book,category:0
+msgid "Recibo"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: selection:document.book,category:0
+#: selection:document.book.document.type,category:0
+#: selection:document.book.type,category:0
+msgid "Remito"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__sequence
+msgid "Secuencia"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model,name:l10n_ar_point_of_sale.model_document_book
+msgid "Talonario"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.actions.act_window,name:l10n_ar_point_of_sale.action_document_book_view
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_pos_ar__document_book_ids
+#: model:ir.ui.menu,name:l10n_ar_point_of_sale.document_books_main_menu
+msgid "Talonarios"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_document_type__type
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book_type__type
+msgid "Tipo"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_afip_voucher_type__document_type_id
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__document_type_id
+msgid "Tipo de documento"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model,name:l10n_ar_point_of_sale.model_afip_voucher_type
+msgid "Tipo de documento de afip"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model,name:l10n_ar_point_of_sale.model_document_book_document_type
+msgid "Tipo de documento de talonario"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model,name:l10n_ar_point_of_sale.model_document_book_type
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_account_invoice__document_book_type
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__book_type_id
+msgid "Tipo de talonario"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model:ir.model.fields,field_description:l10n_ar_point_of_sale.field_document_book__name
+msgid "Ultimo numero"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: model_terms:ir.ui.view,arch_db:l10n_ar_point_of_sale.invoice_pos_ar_supplier_form
+msgid "XXXX-XXXXXXXX"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: sql_constraint:document.book.type:0
+msgid "Ya existe ese tipo de talonario para esa categoría"
+msgstr ""
+
+#. module: l10n_ar_point_of_sale
+#: sql_constraint:pos.ar:0
+msgid "Ya existe un punto de venta con ese nombre para esta empresa"
+msgstr ""
+

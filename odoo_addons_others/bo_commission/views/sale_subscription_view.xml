@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<odoo>
+
+    <record id="sale_subscription_view_form" model="ir.ui.view">
+        <field name="name">sale_subscription_view_form</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='recurring_invoice_line_ids']//tree//field[@name='price_subtotal']" position="after">
+                <field name="commission_free" invisible="1"/>
+                <field name="agents" invisible="1"/>
+                <button name="button_edit_agents"
+                        icon="fa-users"
+                        attrs="{'invisible': [('commission_free', '=', True)]}"
+                        type="object"
+                />
+                <field name="commission_status"/>
+            </xpath>
+            <field name="recurring_total" position="after">
+                <field name="commission_total"
+                       widget="monetary"
+                       options="{'currency_field': 'currency_id'}"/>
+            </field>
+            <field name="recurring_invoice_line_ids" position="after">
+                <group name="group_recompute_commission" col="6">
+                    <button name="recompute_lines_agents" type="object" string="Recalcular líneas de agentes"/>
+                </group>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sale_subscription_line_tree">
+        <field name="name">sale.subscription.line.agent.tree</field>
+        <field name="model">sale.subscription.line.agent</field>
+        <field name="arch" type="xml">
+            <tree string="Agentes" editable="bottom">
+                <field name="agent"
+                       context="{'default_agent': True, 'default_customer': False, 'default_supplier': True}"
+                />
+                <field name="commission"/>
+                <field name="commission_type" invisible="1"/>
+                <field name="commission_percentage" attrs="{'invisible': [('commission_type', '!=', 'fixed')]}"/>
+                <field name="amount"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->

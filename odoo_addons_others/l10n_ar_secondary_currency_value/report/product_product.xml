@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<odoo>
+
+    <template id="mrp_cost_structure" inherit_id="mrp_account.mrp_cost_structure">
+        <t t-set="currency" position="after">
+            <t t-set="secondary_currency" t-value="line['secondary_currency']"/>
+        </t>
+        <xpath expr="//td[@colspan='4'][1]/.." position="after">
+            <tr>
+                <td colspan="4" class="text-right">
+                    <strong>Costo en moneda secundaria</strong>
+                </td>
+                <td class="text-right">
+                    <strong t-esc="line['total_secondary_currency_cost']" t-options="{'widget': 'monetary', 'display_currency': secondary_currency}"/>
+                </td>
+            </tr>
+        </xpath>
+        <xpath expr="//div[@class='col-6 offset-6']/table" position="inside">
+            <tr>
+                <td class="text-right">
+                    <strong>Costo unitario en moneda secundaria</strong>
+                </td>
+                <th class="text-right">
+                    <strong t-esc="(line['total_secondary_currency_cost'] + opcost) / line['mo_qty']" t-options="{'widget': 'monetary', 'display_currency': secondary_currency}"/>
+                </th>
+            </tr>
+        </xpath>
+    </template>
+
+</odoo>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->

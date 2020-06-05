@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="payment_imputation_wizard_form">
+            <field name="name">Payment imputation form</field>
+            <field name="model">payment.imputation.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="payment_type" invisible="1"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="partner_id" required="1"/>
+                                <field name="advance_amount"/>
+                            </group>
+                            <group>
+                                <field name="payment_date"/>
+                                <field name="journal_id" string="Diario"/>
+                                <field name="need_rate" invisible="1"/>
+                                <field name="currency_rate" string="Cotización pago" groups="base.group_multi_currency"
+                                       attrs="{'invisible': [('need_rate', '=', False)]}"/>
+                                <field name="current_currency_rate" groups="base.group_multi_currency"
+                                       attrs="{'invisible': [('need_rate', '=', False)]}"/>
+                                <div class="alert alert-warning" role="alert" colspan="2"
+                                     attrs="{'invisible': [('need_rate', '=', False)]}">
+                                    Si carga una cotización en <strong>cotización pago</strong>, se utilizará la misma para hacer
+                                    las conversiones. De lo contrario se utilizará la <strong>cotización actual</strong>.
+                                </div>
+                            </group>
+                        </group>
+                        <separator string="Débitos"/>
+                        <field name="debit_imputation_line_ids" widget="one2many">
+                            <tree
+                                editable="bottom" create="false"
+                                decoration-info="amount &gt; 0 and amount &lt; amount_residual_in_payment_currency"
+                                decoration-muted="amount == 0"
+                                decoration-success="amount == amount_residual_in_payment_currency"
+                                decoration-danger="amount &gt; amount_residual_in_payment_currency"
+                            >
+                                <field name="name"/>
+                                <field name="move_line_id" invisible="1"/>
+                                <field name="invoice_id" invisible="1"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="company_currency_id" invisible="1"/>
+                                <field name="payment_currency_id" invisible="1"/>
+                                <field name="amount"/>
+                                <field name="amount_residual_in_payment_currency" string="Restante"/>
+                                <field name="amount_total_in_payment_currency" string="Total"/>
+                                <field name="amount_residual" string="Restante moneda comprobante"/>
+                                <field name="amount_total" string="Total moneda comprobante"/>
+                                <field name="difference_account_id" string="Cuenta destino de diferencia"/>
+                                <field name="concile"/>
+                            </tree>
+                        </field>
+                         <separator string="Créditos"/>
+                         <field name="credit_imputation_line_ids">
+                            <tree
+                                editable="bottom" create="false"
+                                decoration-info="amount &gt; 0 and amount &lt; amount_residual_in_payment_currency"
+                                decoration-muted="amount == 0"
+                                decoration-success="amount == amount_residual_in_payment_currency"
+                                decoration-danger="amount &gt; amount_residual_in_payment_currency"
+                            >
+                                <field name="name"/>
+                                <field name="move_line_id" invisible="1"/>
+                                <field name="invoice_id" invisible="1"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="company_currency_id" invisible="1"/>
+                                <field name="payment_currency_id" invisible="1"/>
+                                <field name="amount"/>
+                                <field name="amount_residual_in_payment_currency" string="Restante"/>
+                                <field name="amount_total_in_payment_currency" string="Total"/>
+                                <field name="amount_residual" string="Restante moneda comprobante"/>
+                                <field name="amount_total" string="Total moneda comprobante"/>
+                                <field name="difference_account_id" string="Cuenta destino de diferencia"/>
+                                <field name="concile"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <field name="total"/>
+                        </group>
+                        <footer>
+                            <button
+                                name="create_payment"
+                                string="Crear pago"
+                                type="object"
+                                class="btn btn-primary btn-sm"
+                            />
+                            o
+                            <button string="Cancelar" class="oe_link" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<odoo>
+
+    <data>
+
+        <!-- Configuracion de Percepciones (perception.perception.template) -->
+
+        <record id="perception_perception_iva_sufrida" model="perception.perception.template">
+            <field name="name">Percepcion IVA Sufrida</field>
+            <field name="type">vat</field>
+            <field name="jurisdiction">nacional</field>
+            <field name="tax_template_id" ref="tax_percepcion_iva_sufrida"/>
+            <field name="chart_template_id" ref="ar_chart_template" />
+        </record>
+
+        <record id="perception_perception_iibb_caba_efectuada" model="perception.perception.template">
+            <field name="name">Percepcion IIBB CABA Efectuada</field>
+            <field name="type">gross_income</field>
+            <field name="jurisdiction">provincial</field>
+            <field name="state_id" ref="base.state_ar_c"/>
+            <field name="tax_template_id" ref="tax_percepcion_iibb_caba_efectuada"/>
+            <field name="chart_template_id" ref="ar_chart_template" />
+        </record>
+
+        <record id="perception_perception_iibb_caba_sufrida" model="perception.perception.template">
+            <field name="name">Percepcion IIBB CABA Sufrida</field>
+            <field name="type">gross_income</field>
+            <field name="jurisdiction">provincial</field>
+            <field name="state_id" ref="base.state_ar_c"/>
+            <field name="tax_template_id" ref="tax_percepcion_iibb_caba_sufrida"/>
+            <field name="chart_template_id" ref="ar_chart_template" />
+        </record>
+
+        <record id="perception_perception_iibb_pba_efectuada" model="perception.perception.template">
+            <field name="name">Percepcion IIBB PBA Efectuada</field>
+            <field name="type">gross_income</field>
+            <field name="jurisdiction">provincial</field>
+            <field name="state_id" ref="base.state_ar_b"/>
+            <field name="tax_template_id" ref="tax_percepcion_iibb_pba_efectuada"/>
+            <field name="chart_template_id" ref="ar_chart_template" />
+        </record>
+
+        <record id="perception_perception_iibb_pba_sufrida" model="perception.perception.template">
+            <field name="name">Percepcion IIBB PBA Sufrida</field>
+            <field name="type">gross_income</field>
+            <field name="jurisdiction">provincial</field>
+            <field name="state_id" ref="base.state_ar_b"/>
+            <field name="tax_template_id" ref="tax_percepcion_iibb_pba_sufrida"/>
+            <field name="chart_template_id" ref="ar_chart_template" />
+        </record>
+
+        <record id="perception_perception_ganancias_sufrida" model="perception.perception.template">
+            <field name="name">Percepcion Ganancias Sufrida</field>
+            <field name="type">profit</field>
+            <field name="jurisdiction">nacional</field>
+            <field name="tax_template_id" ref="tax_percepcion_ganancia_sufrida"/>
+            <field name="chart_template_id" ref="ar_chart_template" />
+        </record>
+
+    </data>
+
+</odoo>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->

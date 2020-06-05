@@ -1,0 +1,27 @@
+DIRECCION GENERAL DE RENTAS DE LA PROVINCIA DE TUCUM�N. 
+Archivo de Contribuyentes que acreditan inscripci�n seg�n RG 176/10.
+Fecha de Descarga: Martes, 28 de Enero de 2020  17:04:09
+
+ARCHIVO DEL PERIODO: FEBRERO 2020
+
+CUIT                DESDE     HASTA     DENOMINACION                                                                                                                                           PORCENTAJE
+30710061196     CM  20200201  20200229  -ATUBY S.R.L.                                                                                                                                           1.5
+30709424994  E  CM  20200201  20200229  -UKE MAPU S.R.L.                                                                                                                                        -----
+30715694421  E  CL  20200201  20200229  1 2 3 YA DE GALVAN ROMINA Y BARROS STELLA MARIS SIMPLE ASOCIACION                                                                                       -----
+30707598073     CM  20200201  20200229  1 POR 1 S.A.                                                                                                                                            3.5
+30575019524     CM  20200201  20200229  100000 LAMPARAS SRL                                                                                                                                     3.5
+30708760796     CM  20200201  20200229  17 DE ABRIL S.A.                                                                                                                                        1.5
+30716692929     CL  20200201  20200229  25 DE MAYO S.R.L. EN FORMACI�N                                                                                                                          5
+30715899260     CL  20200201  20200229  2E S.R.L.                                                                                                                                               5
+30594465497  E  CM  20200201  20200229  3 ARROYOS S.A.                                                                                                                                          -----
+30714953822     CL  20200201  20200229  3 BYTES SOLUCIONES DE SOFWARE SH DE HECTOR ITURRE MAXIMO ESTRADA Y KARINA PAOLA HAURE                                                                   5
+30710620187  E  CL  20200201  20200229  30 DE FEBRERO S.R.L.                                                                                                                                    -----
+30711120056     CM  20200201  20200229  300 Productora SA                                                                                                                                       3.5
+30715752936     CL  20200201  20200229  360 MEDIA S.R.L.                                                                                                                                        0
+30529994393     CM  20200201  20200229  3M ARGENTINA SACIFIA                                                                                                                                    5
+30716433834     CM  20200201  20200229  3Y AGROSERVICIOS SRL EN FORMACION                                                                                                                       0.75
+30710124341     CM  20200201  20200229  4 A S.R.L.                                                                                                                                              5
+30713210206     CL  20200201  20200229  4H S.A.                                                                                                                                                 1.5
+30709829730     CM  20200201  20200229  4KRC S.A.                                                                                                                                               3.5
+30711137560     CM  20200201  20200229  6 P S.A.                                                                                                                                                5
+30712557660     CM  20200201  20200229  90K SURCOS S.R.L.                                                                                                                                       1.5

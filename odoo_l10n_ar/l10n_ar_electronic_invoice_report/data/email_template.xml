@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<odoo>
+    <data noupdate="1">
+
+        <record id="electronic_invoice_email_template" model="mail.template">
+            <field name="name">Electronic invoice: Send by email</field>
+            <field name="model_id" ref="account.model_account_invoice"/>
+            <field name="email_from">${object.user_id.email_formatted |safe}</field>
+            <field name="partner_to">${object.partner_id.id}</field>
+            <field name="subject">${object.company_id.name} Factura electrónica ${object.denomination_id.name} ${object.name}</field>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        Estimado/a ${object.partner_id.name}
+        % if object.partner_id.parent_id:
+            (${object.partner_id.parent_id.name})
+        % endif
+        <br /><br />
+        Aquí está adjunta su factura electrónica <strong>${object.denomination_id.name} ${object.name}</strong>
+        % if object.origin:
+            (con referencia: ${object.origin})
+        % endif
+        por un monto de  <strong>${format_amount(object.amount_total, object.currency_id)}</strong>
+        por parte de ${object.company_id.name}.
+        % if object.state=='paid':
+            Esta factura ya está pagada.
+        % else:
+            Por favor remita el pago a su más pronta conveniencia.
+        % endif
+        <br/><br/>
+        Si tiene alguna pregunta, no dude en contactarnos.
+    </p>
+</div>
+            </field>
+            <field name="report_template" ref="action_electronic_invoice"/>
+            <field name="report_name">Factura electrónica ${object.denomination_id.name} ${object.name}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="user_signature" eval="False"/>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+    </data>
+</odoo>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->

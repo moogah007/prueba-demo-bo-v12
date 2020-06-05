@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<odoo>
+    <template id="report_settlement" inherit_id="sale_commission.report_settlement">
+        <xpath expr="//div[@class='page']//table" position="replace">
+            <t t-if="o.lines">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Fecha de factura</th>
+                            <th>Factura</th>
+                            <th class="text-right">Importe liquidado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="o.lines_groupby_invoice()" t-as="l">
+                            <td><span t-esc="l.date_invoice.strftime('%m/%d/%Y')"/></td>
+                            <td><span t-esc="l.name_get()[0][1]"/></td>
+                            <td class="text-right"><span t-esc="l_value" t-esc-options="{'widget': 'monetary', 'display_currency': 'o.currency_id'}"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
+        </xpath>
+    </template>
+</odoo>
+
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->

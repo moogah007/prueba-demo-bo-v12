@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<odoo>
+        
+    <report
+        id="l10n_ar_stock_picking_report.action_report"
+        model="stock.picking"
+        string="Remito autoimpresor"
+        report_type="qweb-pdf"
+        name="l10n_ar_stock_picking_report.report_selfprint_layout"
+        file="l10n_ar_stock_picking_report.report_selfprint_layout"
+    />
+
+    <record id="picking_paper_format" model="report.paperformat">
+        <field name="name">Papel remito autoimpresor</field>        
+        <field name="margin_top">75</field>
+        <field name="orientation">Portrait</field>                      
+        <field name="margin_bottom">50</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_spacing">70</field>
+    </record> 
+
+    <record id="l10n_ar_stock_picking_report.action_report" model="ir.actions.report">
+        <field name="paperformat_id" ref="picking_paper_format"/>
+    </record>   
+
+</odoo>
+    
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4-->

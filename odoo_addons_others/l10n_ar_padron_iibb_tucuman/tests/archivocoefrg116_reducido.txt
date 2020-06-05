@@ -1,0 +1,21 @@
+DIRECCION GENERAL DE RENTAS DE LA PROVINCIA DE TUCUM�N. 
+Archivo de Coeficientes RG 116/10 
+Fecha de actualizaci�n: Martes, 28 de Enero de 2020  18:12:19
+
+CUIT                            DENOMINACION                                                                                                                                            PORCENTAJE
+30712414290     1.0000  202002  +MAS LOGISTICA S.A.                                                                                                                                     5
+30709424994  E  -.----  202002  -UKE MAPU S.R.L.                                                                                                                                        -----
+30646643569     1.0000  202002  0PEN ARGENTINA SRL                                                                                                                                      3.5
+30708448156     1.0000  202002  1  PLANO SRL                                                                                                                                            5
+30707598073     1.0000  202002  1 POR 1 S.A.                                                                                                                                            3.5
+30708738944     1.0000  202002  10 X SRL                                                                                                                                                3.5
+30575019524     1.0000  202002  100000 LAMPARAS SRL                                                                                                                                     3.5
+30708411279     1.0000  202002  100GRADOS S.A.                                                                                                                                          3.5
+30714197211     1.0000  202002  1030 S.R.L.                                                                                                                                             5
+30684785113     1.0000  202002  11 DE MAYO S.R.L.                                                                                                                                       3.5
+30715856138     1.0000  202002  12 NUDOS SAS                                                                                                                                            1.5
+30716075687     1.0000  202002  15 PRIMAVERAS S.A.                                                                                                                                      5
+30708760796     1.0000  202002  17 DE ABRIL S.A.                                                                                                                                        1.5
+30709960772     1.0000  202002  17 DE AGOSTO S.R.L.                                                                                                                                     1.5
+30714789879     1.0000  202002  20 DE JULIO S.R.L.                                                                                                                                      5
+30714931330     1.0000  202002  20 X 20 S.A.                                                                                                                                            3.5

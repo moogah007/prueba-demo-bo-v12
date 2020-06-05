@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_invoice_presentation_manager,account.invoice.presentation manager,model_account_invoice_presentation,account.group_account_manager,1,1,1,1
+access_invoice_presentation_user,account.invoice.presentation user,model_account_invoice_presentation,account.group_account_invoice,1,0,0,0
+access_invoice_vat_digital_book_manager,account.invoice.vat.digital.book manager,model_account_invoice_vat_digital_book,account.group_account_manager,1,1,1,1
+access_invoice_vat_digital_book_user,account.invoice.vat.digital.book user,model_account_invoice_vat_digital_book,account.group_account_invoice,1,0,0,0

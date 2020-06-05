@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+perception_template_user,perception_template_user,model_perception_perception_template,base.group_user,1,0,0,0
+retention_template_user,retention_template_user,model_retention_retention_template,base.group_user,1,0,0,0
